@@ -12,7 +12,8 @@ const onGenerateSubmit = (e) => {
     showSpinner()
     setTimeout(()=> {
       hideSpinner()
-    },3000)
+      generateQRCode(url, size)
+    },1500)
   }
 }
 
@@ -21,6 +22,14 @@ const showSpinner = ()=> {
 }
 const hideSpinner = ()=> {
   document.getElementById('spinner').style.display = 'none'
+}
+
+const generateQRCode = (url, size)=> {
+  var qrcode = new QRCode('qrcode', {
+    text: url,
+    width: size,
+    height: size,
+  })
 }
 
 hideSpinner()
